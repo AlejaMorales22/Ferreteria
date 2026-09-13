@@ -4,7 +4,7 @@
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
  * July Alejandra Morales Muñoz*/
-public class Vendendor {
+public class Vendedor {
 
     private String tipoDocumento;
     private int numeroDocumento;
