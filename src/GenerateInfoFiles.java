@@ -112,9 +112,7 @@ private static final double[] PRODUCTOS_PRECIOS = {
 
     /**  * Genera un archivo de ventas para un vendedor. */
     public static void createSalesMenFile(
-            int randomSalesCount,
-            String name,
-            long id) {
+           
 
     }
 
