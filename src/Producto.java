@@ -3,6 +3,7 @@
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
+ * David Insignares 
  * July Alejandra Morales Muñoz*/
 public class Producto {
 
