@@ -14,6 +14,7 @@ import java.io.PrintWriter;
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
  * July Alejandra Morales Muñoz
+ * David Insignares 
  * Juan Andres Leguizamon Suaza
  */
 public class GenerateInfoFiles {
