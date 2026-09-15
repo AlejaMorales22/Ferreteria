@@ -3,6 +3,7 @@
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
+ * David Insignares 
  * July Alejandra Morales Muñoz*/
 public class Vendedor {
 
@@ -11,7 +12,7 @@ public class Vendedor {
     private String nombres;
     private String apellidos;
 
-    public Vendendor(String tipoDocumento, int numeroDocumento, String nombres, String apellidos) {
+    public Vendedor(String tipoDocumento, int numeroDocumento, String nombres, String apellidos) {
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
         this.nombres = nombres;
