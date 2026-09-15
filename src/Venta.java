@@ -4,7 +4,7 @@
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
  * July Alejandra Morales Muñoz
- *
+ * David Insignares 
  * */
 
 public class Venta {
