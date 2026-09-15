@@ -1,0 +1,15 @@
+1;Martillo;45059
+2;Taladro;62506
+3;Destornillador;192939
+4;Alicate;154065
+5;Llave Inglesa;190166
+6;Cinta Metrica;192582
+7;Sierra;9805
+8;Brocha;141406
+9;Pintura;92268
+10;Tornillos;152796
+11;Clavos;138013
+12;Cemento;9004
+13;Pegante;5825
+14;Lija;215018
+15;Nivel;9447

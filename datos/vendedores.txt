@@ -1,0 +1,10 @@
+CC;1001;Daniel;Hernandez
+CC;1002;Valentina;Rodriguez
+CC;1003;Carlos;Hernandez
+CC;1004;Valentina;Garcia
+CC;1005;Sofia;Lopez
+CC;1006;Sofia;Martinez
+CC;1007;Sofia;Torres
+CC;1008;Sofia;Ramirez
+CC;1009;Valentina;Hernandez
+CC;1010;Miguel;Martinez
