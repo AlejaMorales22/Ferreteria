@@ -92,29 +92,62 @@ private static final double[] PRODUCTOS_PRECIOS = {
     5000,
     18000
 };
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        try {
+    try {
 
+        createProductsFile(CANTIDAD_PRODUCTOS);
 
-            System.out.println(
-                "Archivos generados correctamente."
+        createSalesManInfoFile(CANTIDAD_VENDEDORES);
+
+        for (int i = 0; i < CANTIDAD_VENDEDORES; i++) {
+
+            long id = 1001 + i;
+
+            int randomSalesCount = RANDOM.nextInt(10) + 1;
+
+            String name = "vendedor_" + id;
+
+            createSalesMenFile(
+                randomSalesCount,
+                name,
+                id
             );
+        }
 
-        } catch (Exception e) {
+        System.out.println(
+            "Archivos generados correctamente."
+        );
 
-            System.out.println(
-                "Error al generar los archivos: "
-                + e.getMessage()
+    } catch (Exception e) {
+
+        System.out.println(
+            "Error al generar los archivos: "
+            + e.getMessage()
+        );
+    }
+}
+
+  /** * Genera un archivo de ventas para un vendedor. */
+public static void createSalesMenFile(
+        int randomSalesCount, String name, long id) throws Exception {
+
+    try (PrintWriter writer = new PrintWriter(name + ".txt", "UTF-8")) {
+
+        writer.println("CC;" + id);
+
+        for (int i = 0; i < randomSalesCount; i++) {
+
+            int idProducto = RANDOM.nextInt(CANTIDAD_PRODUCTOS) + 1;
+
+            int cantidad = RANDOM.nextInt(10) + 1;
+
+            writer.println(
+                idProducto + ";" + cantidad + ";"
             );
         }
     }
-
-    /**  * Genera un archivo de ventas para un vendedor. */
-    public static void createSalesMenFile(
-           
-
-    }
+}
 
   
   
