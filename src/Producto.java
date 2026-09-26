@@ -5,15 +5,15 @@
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
- * David Insignares 
- * July Alejandra Morales Muñoz */
+ * July Alejandra Morales Muñoz
+ * Daniel Jose Rios Gutierrez
+ * David Insignares Vega
+ * Juan Andres Leguizamon Suaza
+ * */
 
-/**
- *
- */
 public class Producto {
 
-    /**Identificador unico del producto. */
+    /** Identificador unico del producto. */
     private int id;
 
     /** Nombre del producto. */
@@ -32,7 +32,6 @@ public class Producto {
      * @param nombre nombre del producto
      * @param precioUnitario precio de venta de una unidad.
      */
-
     public Producto(int id, String nombre, double precioUnitario) {
         this.id = id;
         this.nombre = nombre;
@@ -44,7 +43,7 @@ public class Producto {
      * Suma unidades vendidas al total acumulado del producto.
      * @param cantidad unidades vendidas en una venta.
      */
-    public void agregarCantidad(int cantidad){
+    public void agregarCantidad(int cantidad) {
         cantidadVendida += cantidad;
     }
 
@@ -80,8 +79,4 @@ public class Producto {
     public int getCantidadVendida() {
         return cantidadVendida;
     }
-
-
-
-
 }

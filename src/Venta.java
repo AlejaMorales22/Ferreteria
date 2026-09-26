@@ -1,11 +1,13 @@
-/** * Representa una venta realizada por un vendedor, indicando el producto
+/** Representa una venta realizada por un vendedor, indicando el producto
  * vendido y la cantidad correspondiente.
  *
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
  * July Alejandra Morales Muñoz
- * David Insignares 
+ * Daniel Jose Rios Gutierrez
+ * David Insignares Vega
+ * Juan Andres Leguizamon Suaza
  * */
 
 public class Venta {

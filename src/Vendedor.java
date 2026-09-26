@@ -4,8 +4,11 @@
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
- * David Insignares 
- * July Alejandra Morales Muñoz*/
+ * July Alejandra Morales Muñoz
+ * Daniel Jose Rios Gutierrez
+ * David Insignares Vega
+ * Juan Andres Leguizamon Suaza
+ * */
 public class Vendedor {
 
     /** Tipo de documento de identidad del vendedor (por ejemplo, CC). */
@@ -44,7 +47,7 @@ public class Vendedor {
      *
      * @param valor dinero obtenido en la venta (precio por cantidad).
      */
-    public void agregarVenta(double valor){
+    public void agregarVenta(double valor) {
         totalRecaudado += valor;
     }
 
@@ -53,7 +56,7 @@ public class Vendedor {
      *
      * @return nombres y apellidos separados por un espacio.
      */
-    public String getNombreCompleto(){
+    public String getNombreCompleto() {
         return nombres + " " + apellidos;
     }
 
@@ -101,6 +104,4 @@ public class Vendedor {
     public double getTotalRecaudado() {
         return totalRecaudado;
     }
-
-
 }

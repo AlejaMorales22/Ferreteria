@@ -13,7 +13,8 @@ import java.util.Random;
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
  * July Alejandra Morales Muñoz
- * David Insignares
+ * Daniel Jose Rios Gutierrez
+ * David Insignares Vega
  * Juan Andres Leguizamon Suaza
  */
 public class GenerateInfoFiles {
