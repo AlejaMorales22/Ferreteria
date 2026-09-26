@@ -8,71 +8,82 @@ import java.util.Random;
 
 /**
  * Genera los archivos planos de entrada para el proyecto  de ventas de una ferreteria.
- 
+ * <p>
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
  * July Alejandra Morales Muñoz
- * David Insignares 
+ * David Insignares
  * Juan Andres Leguizamon Suaza
  */
 public class GenerateInfoFiles {
 
-    /** Generador de numeros pseudoaleatorios. */
+    /**
+     * Generador de numeros pseudoaleatorios.
+     */
     private static final Random RANDOM = new Random();
 
-    /** Carpeta donde se almacenaran los archivos de entrada generados. */
+    /**
+     * Carpeta donde se almacenaran los archivos de entrada generados.
+     */
     private static final Path CARPETA_DATOS = Paths.get("datos");
 
-    /** Cantidad de productos que tendra el archivo generado. */
+    /**
+     * Cantidad de productos que tendra el archivo generado.
+     */
     private static final int CANTIDAD_PRODUCTOS = 15;
 
-    /** Cantidad de vendedores que tendra el archivo generado. */
+    /**
+     * Cantidad de vendedores que tendra el archivo generado.
+     */
     private static final int CANTIDAD_VENDEDORES = 10;
 
-private static final String[] NOMBRES = {
-    "Juan",
-    "Maria",
-    "Carlos",
-    "Laura",
-    "Andres",
-    "Camila",
-    "Daniel",
-    "Sofia",
-    "Miguel",
-    "Valentina"
-};
+    /** Nombres reales usados para generar vendedores de forma coherente. */
+    private static final String[] NOMBRES = {
+            "Juan",
+            "Maria",
+            "Carlos",
+            "Laura",
+            "Andres",
+            "Camila",
+            "Daniel",
+            "Sofia",
+            "Miguel",
+            "Valentina"
+    };
 
-private static final String[] APELLIDOS = {
-    "Perez",
-    "Gomez",
-    "Rodriguez",
-    "Martinez",
-    "Lopez",
-    "Garcia",
-    "Hernandez",
-    "Torres",
-    "Ramirez",
-    "Castro"
-};
+    /** Apellidos reales usados para generar vendedores de forma coherente. */
+    private static final String[] APELLIDOS = {
+            "Perez",
+            "Gomez",
+            "Rodriguez",
+            "Martinez",
+            "Lopez",
+            "Garcia",
+            "Hernandez",
+            "Torres",
+            "Ramirez",
+            "Castro"
+    };
 
-private static final String[] PRODUCTOS_NOMBRES = {
-    "Martillo",
-    "Taladro",
-    "Destornillador",
-    "Alicate",
-    "Llave Inglesa",
-    "Cinta Metrica",
-    "Sierra",
-    "Brocha",
-    "Pintura",
-    "Tornillos",
-    "Clavos",
-    "Cemento",
-    "Pegante",
-    "Lija",
-    "Nivel"
-};
+    /** Nombres de productos de ferreteria usados para generar el catalogo. */
+    private static final String[] PRODUCTOS_NOMBRES = {
+            "Martillo",
+            "Taladro",
+            "Destornillador",
+            "Alicate",
+            "Llave Inglesa",
+            "Cinta Metrica",
+            "Sierra",
+            "Brocha",
+            "Pintura",
+            "Tornillos",
+            "Clavos",
+            "Cemento",
+            "Pegante",
+            "Lija",
+            "Nivel"
+    };
 
     /**
      * Genera todos los archivos de entrada requeridos por el proyecto.
@@ -105,8 +116,8 @@ private static final String[] PRODUCTOS_NOMBRES = {
      * Genera un archivo de ventas pseudoaleatorias para un vendedor.
      *
      * @param randomSalesCount cantidad de ventas a generar.
-     * @param name nombre usado para identificar el archivo.
-     * @param id numero de documento del vendedor.
+     * @param name             nombre usado para identificar el archivo.
+     * @param id               numero de documento del vendedor.
      * @throws IOException si ocurre un error al escribir el archivo.
      */
     public static void createSalesMenFile(int randomSalesCount, String name,
