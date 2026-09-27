@@ -23,9 +23,35 @@ public class Main {
             System.out.println("\n Registrando una Venta");
             // Parámetros de Venta: (long documentoVendedor, int idProducto, int cantidad)
             // Usamos la 'L' al final de 1001 para indicar que es un tipo 'long' como pide tu clase Venta
-            Venta venta1 = new Venta(1001L, 2, 5); 
+            Venta venta1 = new Venta(1001L, 2, 5);
             System.out.println("Venta registrada: El vendedor 1001 vendió 5 unidades del producto 2.");
 
+            // 5. Probar GeneradorReportes con datos de ejemplo
+            System.out.println("\n Generando reportes");
+
+            Producto producto3 = new Producto(3, "Destornillador", 15000);
+            Vendedor vendedor2 = new Vendedor("CC", 1002, "Maria", "Gomez");
+
+            Venta venta2 = new Venta(1001L, 1, 3);
+            Venta venta3 = new Venta(1002L, 2, 2);
+            Venta venta4 = new Venta(1002L, 3, 4);
+
+            java.util.List<Venta> ventas = java.util.Arrays.asList(venta1, venta2, venta3, venta4);
+
+            java.util.Map<Long, Vendedor> vendedoresPorDocumento = new java.util.HashMap<>();
+            vendedoresPorDocumento.put(1001L, vendedor1);
+            vendedoresPorDocumento.put(1002L, vendedor2);
+
+            java.util.Map<Integer, Producto> productosPorId = new java.util.HashMap<>();
+            productosPorId.put(1, producto1);
+            productosPorId.put(2, producto2);
+            productosPorId.put(3, producto3);
+
+            GeneradorReportes.calcularTotales(ventas, vendedoresPorDocumento, productosPorId);
+            GeneradorReportes.generarReporteVendedores(java.util.Arrays.asList(vendedor1, vendedor2));
+            GeneradorReportes.generarReporteProductos(java.util.Arrays.asList(producto1, producto2, producto3));
+
+            System.out.println("Reportes generados en la carpeta 'datos'.");
             System.out.println("\n EJECUCIÓN FINALIZADA");
 
         } catch (Exception e) {
