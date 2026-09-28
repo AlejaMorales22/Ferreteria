@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class LectorArchivos {
 
-    // Lee los productos y los guarda en un mapa por su ID.
+    // Lee los productos y los guarda en un mapa por su ID
     public static Map<Integer, Producto> leerProductos(Path archivo)
             throws IOException {
 
@@ -43,7 +43,7 @@ public class LectorArchivos {
         return productos;
     }
 
-    // Lee los vendedores y los guarda en un mapa por documento.
+    // Lee los vendedores y los guarda en un mapa por documento
     public static Map<Long, Vendedor> leerVendedores(Path archivo)
             throws IOException {
 
@@ -76,7 +76,7 @@ public class LectorArchivos {
         return vendedores;
     }
 
-    // Lee todos los archivos de ventas de la carpeta.
+    // Lee todos los archivos de ventas de la carpeta
     public static List<Venta> leerVentas(Path carpeta)
             throws IOException {
 
@@ -90,7 +90,7 @@ public class LectorArchivos {
                 try (BufferedReader lector = Files.newBufferedReader(
                         archivo, StandardCharsets.UTF_8)) {
 
-                    // La primera línea identifica al vendedor.
+                    // La primera línea identifica al vendedor
                     String linea = lector.readLine();
 
                     if (linea == null) {
@@ -100,7 +100,7 @@ public class LectorArchivos {
                     String[] datosVendedor = linea.split(";");
                     long documento = Long.parseLong(datosVendedor[1]);
 
-                    // Las demás líneas contienen ID del producto y cantidad.
+                    // Estas líneas contienen ID del producto y cantidad
                     while ((linea = lector.readLine()) != null) {
                         if (linea.trim().isEmpty()) {
                             continue;
@@ -124,26 +124,4 @@ public class LectorArchivos {
     
     }
 
-public static void main(String[] args) {
-    try {
-        Path carpeta = java.nio.file.Paths.get("datos");
-
-        Map<Integer, Producto> productos =
-                leerProductos(carpeta.resolve("productos.txt"));
-
-        Map<Long, Vendedor> vendedores =
-                leerVendedores(carpeta.resolve("vendedores.txt"));
-
-        List<Venta> ventas = leerVentas(carpeta);
-
-        System.out.println("Productos: " + productos.size());
-        System.out.println("Vendedores: " + vendedores.size());
-        System.out.println("Ventas: " + ventas.size());
-
-    } catch (Exception e) {
-    System.out.println(
-        "Error al leer archivos: " + e.getMessage()
-    );
-}
-}
 }
