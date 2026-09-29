@@ -1,15 +1,15 @@
-1;Martillo;70787
-2;Taladro;234548
-3;Destornillador;70860
-4;Alicate;123880
-5;Llave Inglesa;234090
-6;Cinta Metrica;231441
-7;Sierra;157099
-8;Brocha;41590
-9;Pintura;238017
-10;Tornillos;134535
-11;Clavos;179236
-12;Cemento;122718
-13;Pegante;65533
-14;Lija;238647
-15;Nivel;176363
+1;Martillo;104275
+2;Taladro;182288
+3;Destornillador;175311
+4;Alicate;168639
+5;Llave Inglesa;247908
+6;Cinta Metrica;190486
+7;Sierra;108697
+8;Brocha;146092
+9;Pintura;204543
+10;Tornillos;69844
+11;Clavos;139953
+12;Cemento;117990
+13;Pegante;228149
+14;Lija;199017
+15;Nivel;123519
