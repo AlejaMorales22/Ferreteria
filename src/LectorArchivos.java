@@ -1,13 +1,3 @@
-/**
- * Materia: Conceptos fundamentales de programacion
- * Grupo GB02 - G2-TypeNull
- * Integrantes:
- * July Alejandra Morales Muñoz
- * Daniel Jose Riojas Gutierrez
- * David Insignares Vega
- * Juan Andres Leguizamon Suaza
- * */
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -19,9 +9,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Lee los archivos planos de entrada de la ferreteria (productos,
+ * vendedores y ventas) y los convierte en objetos del modelo. Cada linea
+ * se valida con {@link Validador} antes de usarse; las lineas invalidas se
+ * descartan sin detener la lectura.
+ *
+ * Materia: Conceptos fundamentales de programacion
+ * Grupo GB02 - G2-TypeNull
+ * Integrantes:
+ * July Alejandra Morales Muñoz
+ * Daniel Jose Riojas Gutierrez
+ * David Insignares Vega
+ * Juan Andres Leguizamon Suaza
+ */
 public class LectorArchivos {
 
-    // Lee los productos y los guarda en un mapa por su ID
+    /**
+     * Lee el archivo de productos y los guarda en un mapa por su ID.
+     *
+     * @param archivo ruta del archivo de productos (id;nombre;precio).
+     * @return mapa de productos validos, indexados por su identificador.
+     * @throws IOException si ocurre un error al leer el archivo.
+     */
     public static Map<Integer, Producto> leerProductos(Path archivo)
             throws IOException {
 
@@ -62,7 +72,14 @@ public class LectorArchivos {
         return productos;
     }
 
-    // Lee los vendedores y los guarda en un mapa por documento
+    /**
+     * Lee el archivo de vendedores y los guarda en un mapa por documento.
+     *
+     * @param archivo ruta del archivo de vendedores
+     *                (tipo;documento;nombres;apellidos).
+     * @return mapa de vendedores validos, indexados por su documento.
+     * @throws IOException si ocurre un error al leer el archivo.
+     */
     public static Map<Long, Vendedor> leerVendedores(Path archivo)
             throws IOException {
 
@@ -109,7 +126,15 @@ public class LectorArchivos {
     }
 
     /**
-     * Lee todos los archivos vendedor_XXXX.txt.
+     * Lee todos los archivos vendedor_*.txt de la carpeta indicada. El
+     * vendedor se identifica por la primera linea de cada archivo, por lo
+     * que un mismo vendedor puede tener varios archivos de ventas.
+     *
+     * @param carpeta    carpeta donde estan los archivos de ventas.
+     * @param vendedores vendedores registrados, indexados por documento.
+     * @param productos  productos registrados, indexados por su ID.
+     * @return lista con todas las ventas validas encontradas.
+     * @throws IOException si ocurre un error al leer los archivos.
      */
     public static List<Venta> leerVentas(
             Path carpeta,
