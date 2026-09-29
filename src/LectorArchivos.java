@@ -1,3 +1,13 @@
+/**
+ * Materia: Conceptos fundamentales de programacion
+ * Grupo GB02 - G2-TypeNull
+ * Integrantes:
+ * July Alejandra Morales Muñoz
+ * Daniel Jose Riojas Gutierrez
+ * David Insignares Vega
+ * Juan Andres Leguizamon Suaza
+ * */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
