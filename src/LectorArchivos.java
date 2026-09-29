@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -16,25 +15,35 @@ public class LectorArchivos {
     public static Map<Integer, Producto> leerProductos(Path archivo)
             throws IOException {
 
-        Map<Integer, Producto> productos = new HashMap<Integer, Producto>();
+        Map<Integer, Producto> productos =
+                new HashMap<Integer, Producto>();
 
         try (BufferedReader lector = Files.newBufferedReader(
                 archivo, StandardCharsets.UTF_8)) {
 
             String linea;
+            int numeroLinea = 0;
 
             while ((linea = lector.readLine()) != null) {
+
+                numeroLinea++;
+
                 if (linea.trim().isEmpty()) {
                     continue;
                 }
 
-                String[] datos = linea.split(";");
+                if (!Validador.validarProducto(linea, numeroLinea)) {
+                    continue;
+                }
 
-                int id = Integer.parseInt(datos[0]);
-                String nombre = datos[1];
-                double precio = Double.parseDouble(datos[2]);
+                String[] datos = linea.split(";", -1);
 
-                Producto producto = new Producto(id, nombre, precio);
+                int id = Integer.parseInt(datos[0].trim());
+                String nombre = datos[1].trim();
+                double precio = Double.parseDouble(datos[2].trim());
+
+                Producto producto =
+                        new Producto(id, nombre, precio);
 
                 productos.put(id, producto);
             }
@@ -47,27 +56,40 @@ public class LectorArchivos {
     public static Map<Long, Vendedor> leerVendedores(Path archivo)
             throws IOException {
 
-        Map<Long, Vendedor> vendedores = new HashMap<Long, Vendedor>();
+        Map<Long, Vendedor> vendedores =
+                new HashMap<Long, Vendedor>();
 
         try (BufferedReader lector = Files.newBufferedReader(
                 archivo, StandardCharsets.UTF_8)) {
 
             String linea;
+            int numeroLinea = 0;
 
             while ((linea = lector.readLine()) != null) {
+
+                numeroLinea++;
+
                 if (linea.trim().isEmpty()) {
                     continue;
                 }
 
-                String[] datos = linea.split(";");
+                if (!Validador.validarVendedor(linea, numeroLinea)) {
+                    continue;
+                }
 
-                String tipoDocumento = datos[0];
-                long documento = Long.parseLong(datos[1]);
-                String nombres = datos[2];
-                String apellidos = datos[3];
+                String[] datos = linea.split(";", -1);
 
-                Vendedor vendedor = new Vendedor(
-                        tipoDocumento, documento, nombres, apellidos);
+                String tipoDocumento = datos[0].trim();
+                long documento = Long.parseLong(datos[1].trim());
+                String nombres = datos[2].trim();
+                String apellidos = datos[3].trim();
+
+                Vendedor vendedor =
+                        new Vendedor(
+                                tipoDocumento,
+                                documento,
+                                nombres,
+                                apellidos);
 
                 vendedores.put(documento, vendedor);
             }
@@ -76,43 +98,104 @@ public class LectorArchivos {
         return vendedores;
     }
 
-    // Lee todos los archivos de ventas de la carpeta
-    public static List<Venta> leerVentas(Path carpeta)
+    /**
+     * Lee todos los archivos vendedor_XXXX.txt.
+     */
+    public static List<Venta> leerVentas(
+            Path carpeta,
+            Map<Long, Vendedor> vendedores,
+            Map<Integer, Producto> productos)
             throws IOException {
 
         List<Venta> ventas = new ArrayList<Venta>();
 
-        try (DirectoryStream<Path> archivos = Files.newDirectoryStream(
-                carpeta, "vendedor_*.txt")) {
+        try (DirectoryStream<Path> archivos =
+                     Files.newDirectoryStream(
+                             carpeta,
+                             "vendedor_*.txt")) {
 
             for (Path archivo : archivos) {
 
-                try (BufferedReader lector = Files.newBufferedReader(
-                        archivo, StandardCharsets.UTF_8)) {
+                try (BufferedReader lector =
+                             Files.newBufferedReader(
+                                     archivo,
+                                     StandardCharsets.UTF_8)) {
 
-                    // La primera línea identifica al vendedor
                     String linea = lector.readLine();
 
                     if (linea == null) {
+                        System.err.println(
+                                "Archivo " + archivo.getFileName()
+                                        + ": esta vacio.");
                         continue;
                     }
 
-                    String[] datosVendedor = linea.split(";");
-                    long documento = Long.parseLong(datosVendedor[1]);
+                    String[] datosVendedor =
+                            linea.split(";", -1);
 
-                    // Estas líneas contienen ID del producto y cantidad
+                    if (datosVendedor.length != 2) {
+                        System.err.println(
+                                "Archivo " + archivo.getFileName()
+                                        + ": encabezado invalido.");
+                        continue;
+                    }
+
+                    long documento;
+
+                    try {
+                        documento =
+                                Long.parseLong(
+                                        datosVendedor[1].trim());
+                    } catch (NumberFormatException e) {
+
+                        System.err.println(
+                                "Archivo " + archivo.getFileName()
+                                        + ": documento invalido.");
+                        continue;
+                    }
+
+                    if (!Validador.validarVendedorRegistrado(
+                            documento,
+                            vendedores,
+                            archivo.getFileName().toString())) {
+
+                        continue;
+                    }
+
+                    int numeroLinea = 1;
+
                     while ((linea = lector.readLine()) != null) {
+
+                        numeroLinea++;
+
                         if (linea.trim().isEmpty()) {
                             continue;
                         }
 
-                        String[] datosVenta = linea.split(";");
+                        if (!Validador.validarVenta(
+                                linea,
+                                numeroLinea,
+                                productos)) {
 
-                        int idProducto = Integer.parseInt(datosVenta[0]);
-                        int cantidad = Integer.parseInt(datosVenta[1]);
+                            continue;
+                        }
 
-                        Venta venta = new Venta(
-                                documento, idProducto, cantidad);
+                        String[] datosVenta =
+                                linea.split(";", -1);
+
+                        int idProducto =
+                                Integer.parseInt(
+                                        datosVenta[0].trim());
+
+                        int cantidad =
+                                Integer.parseInt(
+                                        datosVenta[1].trim());
+
+                        Venta venta =
+                                new Venta(
+                                        documento,
+                                        idProducto,
+                                        cantidad);
 
                         ventas.add(venta);
                     }
@@ -121,7 +204,5 @@ public class LectorArchivos {
         }
 
         return ventas;
-    
     }
-
 }
