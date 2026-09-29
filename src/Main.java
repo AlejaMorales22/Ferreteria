@@ -1,4 +1,15 @@
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /**
+ * Programa principal del proyecto de ventas de la ferreteria. Lee los
+ * archivos de entrada de la carpeta datos, calcula el dinero recaudado por
+ * cada vendedor y las unidades vendidas de cada producto, y genera los
+ * reportes de vendedores y de productos.
+ *
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
@@ -6,16 +17,15 @@
  * Daniel Jose Riojas Gutierrez
  * David Insignares Vega
  * Juan Andres Leguizamon Suaza
- * */
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
+ */
 public class Main {
 
+    /**
+     * Ejecuta el flujo completo: leer, validar, calcular y generar reportes.
+     * Muestra un mensaje de finalizacion exitosa o de error.
+     *
+     * @param args argumentos de consola. No se usan.
+     */
     public static void main(String[] args) {
 
         System.out.println("INICIANDO SISTEMA");
