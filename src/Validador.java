@@ -1,5 +1,11 @@
+import java.util.Map;
 
 /**
+ * Valida las lineas de los archivos de entrada antes de procesarlas.
+ * Detecta formatos incorrectos, valores no numericos, IDs de producto que
+ * no existen, precios y cantidades negativas, y archivos de ventas de
+ * vendedores no registrados. Cada error se informa por consola.
+ *
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
@@ -7,16 +13,16 @@
  * Daniel Jose Riojas Gutierrez
  * David Insignares Vega
  * Juan Andres Leguizamon Suaza
- * */
-
-import java.util.Map;
-
+ */
 public class Validador {
 
     /**
-     * Valida una linea de producto.
-     * Formato esperado:
-     * id;nombre;precio
+     * Valida una linea del archivo de productos.
+     * Formato esperado: id;nombre;precio
+     *
+     * @param linea       linea leida del archivo.
+     * @param numeroLinea numero de la linea, usado en el mensaje de error.
+     * @return true si la linea es valida; false en caso contrario.
      */
     public static boolean validarProducto(String linea, int numeroLinea) {
 
@@ -61,9 +67,12 @@ public class Validador {
     }
 
     /**
-     * Valida una linea de vendedor.
-     * Formato esperado:
-     * tipoDocumento;documento;nombres;apellidos
+     * Valida una linea del archivo de vendedores.
+     * Formato esperado: tipoDocumento;documento;nombres;apellidos
+     *
+     * @param linea       linea leida del archivo.
+     * @param numeroLinea numero de la linea, usado en el mensaje de error.
+     * @return true si la linea es valida; false en caso contrario.
      */
     public static boolean validarVendedor(String linea, int numeroLinea) {
 
@@ -109,12 +118,16 @@ public class Validador {
     }
 
     /**
-     * Valida una linea de venta.
-     * Formato esperado:
-     * idProducto;cantidad
-     *
-     * Tambien acepta el ; final utilizado por GenerateInfoFiles:
+     * Valida una linea de un archivo de ventas.
+     * Formato esperado: idProducto;cantidad
+     * Tambien acepta el ; final que escribe GenerateInfoFiles:
      * idProducto;cantidad;
+     *
+     * @param linea       linea leida del archivo.
+     * @param numeroLinea numero de la linea, usado en el mensaje de error.
+     * @param productos   productos registrados, para verificar que el ID
+     *                    exista.
+     * @return true si la linea es valida; false en caso contrario.
      */
     public static boolean validarVenta(String linea, int numeroLinea,
                                        Map<Integer, Producto> productos) {
@@ -166,8 +179,13 @@ public class Validador {
     }
 
     /**
-     * Verifica que el documento del archivo de ventas corresponda
-     * a un vendedor registrado en vendedores.txt.
+     * Verifica que el documento de un archivo de ventas corresponda a un
+     * vendedor registrado en vendedores.txt.
+     *
+     * @param documento     documento leido del encabezado del archivo.
+     * @param vendedores    vendedores registrados, indexados por documento.
+     * @param nombreArchivo nombre del archivo, usado en el mensaje de error.
+     * @return true si el vendedor existe; false en caso contrario.
      */
     public static boolean validarVendedorRegistrado(long documento,
                                                     Map<Long, Vendedor> vendedores,
