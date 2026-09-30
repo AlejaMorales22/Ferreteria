@@ -1,4 +1,3 @@
-```java
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.nio.charset.StandardCharsets;
@@ -192,4 +191,4 @@ public class GenerateInfoFiles {
     }
 
 }
-```
+

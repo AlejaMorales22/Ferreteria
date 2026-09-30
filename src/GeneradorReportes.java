@@ -1,4 +1,3 @@
-
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -18,7 +17,6 @@ import java.util.Map;
  * Los reportes se escriben como archivos de texto separados por punto y
  * coma ({@code ;}), en el mismo formato usado por los demas archivos del
  * proyecto, sin fila de encabezado.
- *
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
@@ -170,4 +168,4 @@ public class GeneradorReportes {
         }
     }
 }
-```
+
