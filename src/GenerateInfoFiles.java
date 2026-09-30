@@ -1,3 +1,4 @@
+```java
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.nio.charset.StandardCharsets;
@@ -13,7 +14,7 @@ import java.util.Random;
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
  * July Alejandra Morales Muñoz
- * Daniel Jose Rios Gutierrez
+ * Daniel Jose Riojas Gutierrez
  * David Insignares Vega
  * Juan Andres Leguizamon Suaza
  */
@@ -191,3 +192,4 @@ public class GenerateInfoFiles {
     }
 
 }
+```
