@@ -1,3 +1,4 @@
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -114,7 +115,8 @@ public class GeneradorReportes {
         try (BufferedWriter writer = Files.newBufferedWriter(archivoSalida,
                 StandardCharsets.UTF_8)) {
             for (Vendedor vendedor : vendedoresOrdenados) {
-                writer.write(vendedor.getNombreCompleto() + ";" + vendedor.getTotalRecaudado());
+                writer.write(vendedor.getNombreCompleto() + ";"
+                        + String.format("%.0f", vendedor.getTotalRecaudado()));
                 writer.newLine();
             }
         }
@@ -160,10 +162,12 @@ public class GeneradorReportes {
         try (BufferedWriter writer = Files.newBufferedWriter(archivoSalida,
                 StandardCharsets.UTF_8)) {
             for (Producto producto : productosOrdenados) {
-                writer.write(producto.getNombre() + ";" + producto.getPrecioUnitario() + ";"
+                writer.write(producto.getNombre() + ";"
+                        + String.format("%.0f", producto.getPrecioUnitario()) + ";"
                         + producto.getCantidadVendida());
                 writer.newLine();
             }
         }
     }
 }
+```
