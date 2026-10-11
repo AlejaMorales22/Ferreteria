@@ -1,3 +1,4 @@
+import java.io.Serializable;
 /** Representa una venta realizada por un vendedor, indicando el producto
  * vendido y la cantidad correspondiente.
  *
@@ -10,7 +11,10 @@
  * Juan Andres Leguizamon Suaza
  * */
 
-public class Venta {
+public class Venta implements  Serializable{
+
+    /** Version de la clase usada para la serializacion. */
+    private static final long serialVersionUID = 1L;
 
     /** Numero de documento del vendedor que realizo la venta. */
     private long documentoVendedor;

@@ -1,3 +1,4 @@
+import java.io.Serializable;
 /**
  * Representa un producto disponible para la venta en la ferreteria,
  * incluyendo su identificador, nombre, precio y la cantidad de unidades vendidas
@@ -11,7 +12,10 @@
  * Juan Andres Leguizamon Suaza
  * */
 
-public class Producto {
+public class Producto implements  Serializable{
+
+    /** Version de la clase usada para la serializacion. */
+    private static final long serialVersionUID = 1L;
 
     /** Identificador unico del producto. */
     private int id;

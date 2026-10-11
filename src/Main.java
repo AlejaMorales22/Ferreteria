@@ -7,8 +7,9 @@ import java.util.Map;
 /**
  * Programa principal del proyecto de ventas de la ferreteria. Lee los
  * archivos de entrada de la carpeta datos, calcula el dinero recaudado por
- * cada vendedor y las unidades vendidas de cada producto, y genera los
- * reportes de vendedores y de productos.
+ * cada vendedor y las unidades vendidas de cada producto, genera los
+ * reportes de vendedores y de productos, y guarda los resultados en
+ * archivos serializados.
  *
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
@@ -21,8 +22,9 @@ import java.util.Map;
 public class Main {
 
     /**
-     * Ejecuta el flujo completo: leer, validar, calcular y generar reportes.
-     * Muestra un mensaje de finalizacion exitosa o de error.
+     * Ejecuta el flujo completo: leer, validar, calcular, generar reportes
+     * y serializar los resultados. Muestra un mensaje de finalizacion
+     * exitosa o de error.
      *
      * @param args argumentos de consola. No se usan.
      */
@@ -66,18 +68,38 @@ public class Main {
                     vendedores,
                     productos);
 
+            List<Vendedor> listaVendedores =
+                    new ArrayList<Vendedor>(vendedores.values());
+
+            List<Producto> listaProductos =
+                    new ArrayList<Producto>(productos.values());
+
             // 5. Generar reporte de vendedores
-            GeneradorReportes.generarReporteVendedores(
-                    new ArrayList<Vendedor>(
-                            vendedores.values()));
+            GeneradorReportes.generarReporteVendedores(listaVendedores);
 
             // 6. Generar reporte de productos
-            GeneradorReportes.generarReporteProductos(
-                    new ArrayList<Producto>(
-                            productos.values()));
+            GeneradorReportes.generarReporteProductos(listaProductos);
 
             System.out.println(
                     "\nReportes generados correctamente.");
+
+            // 7. Guardar y verificar los resultados serializados
+            Path archivoVendedores = carpetaDatos.resolve("vendedores.ser");
+            Path archivoProductos = carpetaDatos.resolve("productos.ser");
+
+            ArchivoSerializado.guardar(listaVendedores, archivoVendedores);
+            ArchivoSerializado.guardar(listaProductos, archivoProductos);
+
+            List<Vendedor> vendedoresRecuperados =
+                    ArchivoSerializado.leer(archivoVendedores);
+
+            List<Producto> productosRecuperados =
+                    ArchivoSerializado.leer(archivoProductos);
+
+            System.out.println(
+                    "Archivos serializados verificados: "
+                            + vendedoresRecuperados.size() + " vendedores, "
+                            + productosRecuperados.size() + " productos.");
 
             System.out.println(
                     "EJECUCIÓN FINALIZADA");

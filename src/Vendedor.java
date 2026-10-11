@@ -1,3 +1,4 @@
+import java.io.Serializable;
 /** Representa un vendedor de la ferreteria, con su informacion personal y
  * el dinero total que ha recaudado por sus ventas.
  *
@@ -9,7 +10,10 @@
  * David Insignares Vega
  * Juan Andres Leguizamon Suaza
  * */
-public class Vendedor {
+public class Vendedor implements  Serializable {
+
+    /** Version de la clase usada para la serializacion. */
+    private static final long serialVersionUID = 1L;
 
     /** Tipo de documento de identidad del vendedor (por ejemplo, CC). */
     private String tipoDocumento;
