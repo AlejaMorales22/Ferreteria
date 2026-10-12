@@ -17,7 +17,6 @@ import java.util.Map;
  * Los reportes se escriben como archivos de texto separados por punto y
  * coma ({@code ;}), en el mismo formato usado por los demas archivos del
  * proyecto, sin fila de encabezado.
- *
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
@@ -114,7 +113,8 @@ public class GeneradorReportes {
         try (BufferedWriter writer = Files.newBufferedWriter(archivoSalida,
                 StandardCharsets.UTF_8)) {
             for (Vendedor vendedor : vendedoresOrdenados) {
-                writer.write(vendedor.getNombreCompleto() + ";" + vendedor.getTotalRecaudado());
+                writer.write(vendedor.getNombreCompleto() + ";"
+                        + String.format("%.0f", vendedor.getTotalRecaudado()));
                 writer.newLine();
             }
         }
@@ -160,10 +160,12 @@ public class GeneradorReportes {
         try (BufferedWriter writer = Files.newBufferedWriter(archivoSalida,
                 StandardCharsets.UTF_8)) {
             for (Producto producto : productosOrdenados) {
-                writer.write(producto.getNombre() + ";" + producto.getPrecioUnitario() + ";"
+                writer.write(producto.getNombre() + ";"
+                        + String.format("%.0f", producto.getPrecioUnitario()) + ";"
                         + producto.getCantidadVendida());
                 writer.newLine();
             }
         }
     }
 }
+

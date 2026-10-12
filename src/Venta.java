@@ -1,32 +1,46 @@
-/** Representa una venta realizada por un vendedor, indicando el producto
+import java.io.Serializable;
+
+/**
+ * Representa una venta realizada por un vendedor, indicando el producto
  * vendido y la cantidad correspondiente.
- *
+ * <p>
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
  * July Alejandra Morales Muñoz
- * Daniel Jose Rios Gutierrez
+ * Daniel Jose Riojas Gutierrez
  * David Insignares Vega
  * Juan Andres Leguizamon Suaza
- * */
+ */
 
-public class Venta {
+public class Venta implements Serializable {
 
-    /** Numero de documento del vendedor que realizo la venta. */
+    /**
+     * Version de la clase usada para la serializacion.
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * Numero de documento del vendedor que realizo la venta.
+     */
     private long documentoVendedor;
 
-    /** Identificador del producto vendido. */
+    /**
+     * Identificador del producto vendido.
+     */
     private int idProducto;
 
-    /** Unidades vendidas del producto. */
+    /**
+     * Unidades vendidas del producto.
+     */
     private int cantidad;
 
     /**
      * Crea el registro de una venta.
      *
      * @param documentoVendedor numero de documento del vendedor.
-     * @param idProducto identificador del producto vendido.
-     * @param cantidad unidades vendidas.
+     * @param idProducto        identificador del producto vendido.
+     * @param cantidad          unidades vendidas.
      */
     public Venta(long documentoVendedor, int idProducto, int cantidad) {
         this.documentoVendedor = documentoVendedor;

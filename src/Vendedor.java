@@ -1,38 +1,56 @@
-/** Representa un vendedor de la ferreteria, con su informacion personal y
+import java.io.Serializable;
+
+/**
+ * Representa un vendedor de la ferreteria, con su informacion personal y
  * el dinero total que ha recaudado por sus ventas.
- *
+ * <p>
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
  * July Alejandra Morales Muñoz
- * Daniel Jose Rios Gutierrez
+ * Daniel Jose Riojas Gutierrez
  * David Insignares Vega
  * Juan Andres Leguizamon Suaza
- * */
-public class Vendedor {
+ */
+public class Vendedor implements Serializable {
 
-    /** Tipo de documento de identidad del vendedor (por ejemplo, CC). */
+    /**
+     * Version de la clase usada para la serializacion.
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * Tipo de documento de identidad del vendedor (por ejemplo, CC).
+     */
     private String tipoDocumento;
 
-    /** Numero de documento de identidad del vendedor. */
+    /**
+     * Numero de documento de identidad del vendedor.
+     */
     private long numeroDocumento;
 
-    /** Nombres del vendedor. */
+    /**
+     * Nombres del vendedor.
+     */
     private String nombres;
 
-    /** Apellidos del vendedor. */
+    /**
+     * Apellidos del vendedor.
+     */
     private String apellidos;
 
-    /** Dinero total recaudado por el vendedor, en pesos. */
+    /**
+     * Dinero total recaudado por el vendedor, en pesos.
+     */
     private double totalRecaudado;
 
     /**
      * Crea un vendedor sin ventas registradas.
      *
-     * @param tipoDocumento tipo de documento de identidad.
+     * @param tipoDocumento   tipo de documento de identidad.
      * @param numeroDocumento numero de documento de identidad.
-     * @param nombres nombres del vendedor.
-     * @param apellidos apellidos del vendedor.
+     * @param nombres         nombres del vendedor.
+     * @param apellidos       apellidos del vendedor.
      */
     public Vendedor(String tipoDocumento, long numeroDocumento, String nombres, String apellidos) {
         this.tipoDocumento = tipoDocumento;

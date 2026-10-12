@@ -1,35 +1,50 @@
+import java.io.Serializable;
+
 /**
  * Representa un producto disponible para la venta en la ferreteria,
  * incluyendo su identificador, nombre, precio y la cantidad de unidades vendidas
- *
+ * <p>
  * Materia: Conceptos fundamentales de programacion
  * Grupo GB02 - G2-TypeNull
  * Integrantes:
  * July Alejandra Morales Muñoz
- * Daniel Jose Rios Gutierrez
+ * Daniel Jose Riojas Gutierrez
  * David Insignares Vega
  * Juan Andres Leguizamon Suaza
- * */
+ */
 
-public class Producto {
+public class Producto implements Serializable {
 
-    /** Identificador unico del producto. */
+    /**
+     * Version de la clase usada para la serializacion.
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * Identificador unico del producto.
+     */
     private int id;
 
-    /** Nombre del producto. */
+    /**
+     * Nombre del producto.
+     */
     private String nombre;
 
-    /** Precio de venta de una unidad del producto, en pesos. */
+    /**
+     * Precio de venta de una unidad del producto, en pesos.
+     */
     private double precioUnitario;
 
-    /** Total de unidades vendidas del producto entre todos los vendedores. */
+    /**
+     * Total de unidades vendidas del producto entre todos los vendedores.
+     */
     private int cantidadVendida;
 
     /**
      * Crea un producto de la ferreteria sin unidades vendidas.
      *
-     * @param id identificador unico del producto
-     * @param nombre nombre del producto
+     * @param id             identificador unico del producto
+     * @param nombre         nombre del producto
      * @param precioUnitario precio de venta de una unidad.
      */
     public Producto(int id, String nombre, double precioUnitario) {
@@ -41,6 +56,7 @@ public class Producto {
 
     /**
      * Suma unidades vendidas al total acumulado del producto.
+     *
      * @param cantidad unidades vendidas en una venta.
      */
     public void agregarCantidad(int cantidad) {
@@ -58,6 +74,7 @@ public class Producto {
 
     /**
      * Obtiene el nombre del producto.
+     *
      * @return nombre del producto.
      */
     public String getNombre() {
@@ -66,6 +83,7 @@ public class Producto {
 
     /**
      * Obtiene el precio de una unidad del producto.
+     *
      * @return precio unitario en pesos.
      */
     public double getPrecioUnitario() {
@@ -74,6 +92,7 @@ public class Producto {
 
     /**
      * Obtiene el total de unidades vendidas del producto.
+     *
      * @return cantidad total vendida.
      */
     public int getCantidadVendida() {
