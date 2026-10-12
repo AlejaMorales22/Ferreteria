@@ -1,0 +1,45 @@
+July Alejandra Morales Muñoz
+
+1. Lo aprendido durante el desarrollo del proyecto
+Antes de esta materia solo había usado Java en cosas muy básicas cuando estudiaba en la UdeA, así que este proyecto me sirvió para entender mejor cómo se organiza un programa en clases. Me encargué de las clases Producto, Vendedor y Venta, y ahí entendí para qué sirven los getters y los atributos privados, y cómo otras clases dependen de que esas estén bien hechas para poder avanzar. También aprendí a documentar con Javadoc y a guardar objetos en archivos serializados. Además, como me tocó repartir el trabajo y revisar lo que subía cada uno, aprendí a manejar un repositorio en GitHub con varias personas haciendo cambios al tiempo.
+
+2. Posibles aplicaciones en mi vida profesional
+Trabajo como desarrolladora Junior en el área de servicio y tecnología de Siesa, donde manejo procedimientos almacenados en SQL Server y PostgreSQL, código VB.NET y conectores que suben información al ERP por medio de archivos planos. Lo que hicimos en el proyecto se parece mucho a eso: leer archivos con una estructura fija, validar cada línea, descartar la información que viene mal sin detener el proceso y generar reportes con los resultados. Lo que aprendí sobre separar el código en clases, documentarlo bien y revisar los cambios antes de integrarlos lo puedo aplicar directamente en mi trabajo.
+
+3. Las dificultades presentadas durante el desarrollo del proyecto
+La principal dificultad fue que no tenía mucho manejo de Java y me tocó aprender varias cosas sobre la marcha. También me costó el entorno de desarrollo: el proyecto se empezó en IntelliJ, tuve que instalar y configurar Java 8, y al principio intenté abrirlo en Visual Studio, que no sirve para Java. Por último, como cada uno trabajaba desde su computador y subía cambios al mismo repositorio, había que estar pendiente de no dañar el trabajo de los demás, y al juntar todo aparecieron detalles que tocó corregir antes de cada entrega, como nombres distintos entre clases o valores que salían en notación científica en los reportes.
+
+Daniel José Riojas Gutiérrez
+
+¿Qué aprendí?
+Aprendí a convertir datos ya leídos y validados en resultados útiles. En GeneradorReportes tuve que sumar lo que vendió cada vendedor y cada producto, ordenar de mayor a menor y escribir los dos archivos CSV. También entendí por qué el orden de trabajo importa: mi clase dependía de las clases del modelo y de la lectura de archivos, así que sin eso no podía avanzar ni probar. además de eso comprendí lo frustrante que puede ser el trabajo en grupo si no nos organizamos de manera adecuada y por qué es importante una cadena optima. 
+
+¿Cómo lo puedo aplicar en mi vida profesional?
+Lo aprendido en este proyecto lo puedo aplicar en cualquier trabajo, independiente de mi función en este proyecto, cosas como ordenar la información y mantener un sistema adecuado que debe ser entendible por todos es fundamental. Más específicamente, aprendí a separar la lógica de cálculo de la lectura de datos, lo que facilita mantener y corregir el código en un equipo.
+
+¿Qué dificultades tuve?
+La parte que más me costó fue lograr que los reportes salieran bien presentados y en el orden correcto. Tuvimos que corregir el formato de los números en los reportes. Me costó ser más organizado con el código para que deba ser perfectamente claro para todo un grupo. También me costó la dinámica de grupo ya que muchas veces dependemos uno de los otros para seguir avanzando en el proyecto.
+
+David Insignares Vega
+
+Qué aprendí?
+Aprendí a trabajar con archivos de texto en Java para leer información , como por ejemplo info de productos, vendedores y ventas y convertirla en objetos que el programa puede utilizar, También aprendí a utilizar estructuras de datos como HashMap y ArrayList para almacenar y organizar la información, ademas comprendí la importancia de validar los datos antes de procesarlos y También reforcé el uso de excepciones
+
+Cómo lo puedo aplicar en mi vida profesional?
+Puedo aplicar estos conocimientos en mi vida profesional al desarrollar sistemas que necesiten importar, leer y procesar información desde archivos externos, como inventarios, ventas, clientes o reportes.
+La validación de datos y el manejo de errores son especialmente importantes para evitar información incorrecta y mejorar la confiabilidad de las aplicaciones , documentar el código y realizar pruebas me permite desarrollar programas más fáciles de mantener, entender y mejorar cuando trabajo individualmente o en equipo.
+
+Qué dificultades tuve?
+Una de las dificultades con las conversiones de texto a números y con los casos en los que un archivo estuviera vacío, tuviera datos inválidos o hiciera referencia a un vendedor o producto inexistente.
+Otra dificultad fue organizar la lectura de varios archivos de ventas y controlar los errores sin interrumpir todo el proceso , Esto me permitió comprender la importancia de probar diferentes escenarios y no limitarme únicamente a verificar que el programa funcionara con datos correctos
+
+Juan Andres Leguizamon Suaza
+
+¿Qué aprendí?
+Aprendí la importancia de trabajar de manera organizada, prestar atención a los detalles y colaborar con mis compañeros para alcanzar un objetivo común. También comprendí que es importante revisar el trabajo paso a paso para identificar y solucionar los errores que se presentan.
+Además a leer archivos de texto en Java y a utilizar las clases de Files para procesar información y comprendí la importancia de organizar el código en métodos para facilitar su comprensión y reutilización.
+¿Cómo lo puedo aplicar en mi vida profesional?
+Puedo aplicar lo aprendido en futuros proyectos académicos y laborales, organizando mejor mis tareas, buscando soluciones a los problemas y trabajando en equipo. También me ayudará a ser más responsable y a comunicarme mejor con otras personas.
+¿Qué dificultades tuve?
+Una de las principales dificultades fue organizar los archivos y solucionar algunos errores durante el desarrollo del proyecto. Sin embargo, con paciencia, revisando el trabajo y haciendo pruebas, pude superar los inconvenientes y comprender mejor el proceso.
+
